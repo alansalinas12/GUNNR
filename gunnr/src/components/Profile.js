@@ -74,7 +74,7 @@ function ItemList({ items }) {
                             <div className="post-metadata">
                                 <img alt="mark" className="avatar-image" src={items.profile.user.provider_pic} height="40" width="40" />
                                 <div className="post-info">
-                                    <div data-react-className="PopoverLink"><span className="popover-link" data-reactroot=""><a href="javascript:void(0);">{items.profile.user.name}</a></span></div>
+                                    <div data-react-classname="PopoverLink"><span className="popover-link" data-reactroot=""><a href="javascript:void(0);">{items.profile.user.name}</a></span></div>
                                     <small>Published • a must read</small>
                                 </div>
                             </div>

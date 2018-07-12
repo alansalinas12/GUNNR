@@ -10,7 +10,7 @@ module.exports = {
         if (req.files.image) {
             cloudinary.uploader.upload(req.files.image.path, (result) => {
                 let obj = { text, title, claps, description, feature_img: result.url != null ? result.url : '' }
-                saveArticle(obj)
+                saveWeapon(obj)
             }, {
                     resource_type: 'image',
                     eager: [
