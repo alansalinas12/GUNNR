@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\server",
+    "\\server\\controllers",
+    "\\server\\models",
+    "\\server\\routes",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\Welcome"
+  ],
+  "SelectedNode": "\\server\\controllers\\user.ctrl.js",
+  "PreviewInSolutionExplorer": false
+}
