@@ -7,9 +7,10 @@ const helmet = require('helmet')
 const cloudinary = require('cloudinary')
 const path = require('path');
 
+
 const app = express()
 const router = express.Router()
-const url = process.env.MONGODB_URI || "mongodb://alan:uymt3vaa@ds133621.mlab.com:33621/heroku_fdh40q73"
+const url = "mongodb://alan:uymt3vaa@ds133621.mlab.com:33621/heroku_fdh40q73"
 
 /** configure cloudinary */
 cloudinary.config({
@@ -29,16 +30,20 @@ try {
 
 let port = 5000 || process.env.PORT
 
-/** set up routes {API Endpoints} */
-routes(router)
-
-/** set up middlewares */
 app.use(cors())
 app.use(bodyParser.json())
 app.use(helmet())
-//app.use('/static',express.static(path.join(__dirname,'static')))
+app.get("/", (request, response) => {
+    response.sendFile(path.join(__dirname, 'index.html'));
+});
+app.use('/static', express.static(path.join(__dirname, 'static')))
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
+app.use('/assets', express.static(path.join(__dirname, 'assets')))
 
 app.use('/api', router)
+app.get('*', function (req, res) {
+    res.sendFile(path.resolve(__dirname, 'index.html'));
+});
 
 /** start server */
 app.listen(port, () => {
