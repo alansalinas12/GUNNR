@@ -2,18 +2,50 @@ const User = require('./../models/User');
 const Weapon = require('./../models/Weapon');
 
 module.exports = {
-
-    getUser: (req, res, next) => {
-        User.findOrCreate( req.params.id, {
-            name: req.body.name,
-            email: req.body.email,
-            provider: req.body.provider,
-            provider_id: req.body.provider_id,
-            token: req.body.token,
-            provider_pic: req.body.provider_pic
-        }, (err, user) => {
-            res.send(user)
+    addUser: (req, res, next) => {
+        new User(req.body).save((err, newUser) => {
+            if (err)
+                res.send(err)
+            else if (!newUser)
+                res.send(400)
+            else
+                res.send(newUser)
+            next()
         });
-
+    },
+    getUser: (req, res, next) => {
+        User.findById(req.params.id).then
+        /*populate('following').exec*/((err, user) => {
+                if (err)
+                    res.send(err)
+                else if (!user)
+                    res.send(404)
+                else
+                    res.send(user)
+                next()
+            })
+    },
+    /**
+     * user_to_follow_id, user_id
+     */
+    followUser: (req, res, next) => {
+        User.findById(req.body.id).then((user) => {
+            return user.follow(req.body.user_id).then(() => {
+                return res.json({ msg: "followed" })
+            })
+        }).catch(next)
+    },
+    getUserProfile: (req, res, next) => {
+        User.findById(req.params.id).then
+            ((_user) => {
+                return User.find({ 'following': req.params.id }).then((_users) => {
+                    _users.forEach((user_) => {
+                        _user.addFollower(user_)
+                    })
+                    return Weapon.find({ 'author': req.params.id }).then((_weapons) => {
+                        return res.json({ user: _user, weapons: _weapons })
+                    })
+                })
+            }).catch((err) => console.log(err))
     }
 }

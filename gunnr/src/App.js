@@ -1,22 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Welcome from './components/Welcome/Welcome';
+import Header from './components/Header';
+import { Switch, Route } from 'react-router-dom'
+
+import Feed from './components/Feed'
+import Profile from './components/Profile'
+import WeaponView from './components/WeaponView'
+import Editor from './components/Editor'
+import requireAuthentication from './utils/requireAuth'
+import SignInWith from './components/SignInWith'
+//import  from './components'
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-            <p className="App-intro">
-                <Welcome />
-        </p>
-      </div>
-    );
-  }
+    render() {
+        const pathname = window.location.pathname
+        return (
+            <div>
+                {!pathname.includes('editor') ? <Header /> : ''}
+                <SignInWith />
+                <Switch>
+
+                    <Route exact path="/" component={Feed} />
+
+                    <Route path="/profile/:id" component={Profile} />
+                    <Route path="/weaponview/:id" component={WeaponView} />
+                    <Route path="/editor" component={requireAuthentication(Editor)} />
+                    <Route path="**" component={Feed} />
+                </Switch>
+            </div>
+        );
+    }
 }
 
 export default App;

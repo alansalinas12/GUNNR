@@ -1,39 +1,41 @@
 const weaponcontroller = require('./../controllers/weapon.ctrl');
+const multipart = require('connect-multiparty');
+const multipartWare = multipart();
 
 module.exports = (router) => {
 
     /**
-     * get all articles
+     * get all weapons
      */
     router
         .route('/weapons')
         .get(weaponcontroller.getAll)
 
     /**
-     * add an article
+     * add an weapon
      */
     router
         .route('/weapon')
-        .post(weaponcontroller.addArticle)
+        .post(multipartWare, weaponcontroller.addWeapon)
 
     /**
-     * clap on an article
+     * clap on an weapon
      */
     router
         .route('/weapon/clap')
-        .post(weaponcontroller.clapArticle)
+        .post(weaponcontroller.clapWeapon)
 
     /**
-     * comment on an article
+     * comment on an weapon
      */
     router
         .route('/weapon/comment')
-        .post(weaponcontroller.commentArticle)
+        .post(weaponcontroller.commentWeapon)
 
     /**
-     * get a particlular article to view
+     * get a particlular weapon to view
      */
     router
         .route('/weapon/:id')
-        .get(weaponcontroller.getArticle)
+        .get(weaponcontroller.getWeapon)
 }
