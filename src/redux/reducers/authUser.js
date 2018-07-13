@@ -15,6 +15,13 @@ export default (state = initialState, action) => {
                 isAuth: Object.keys(action.user).length > 0 ? true : false,
                 user: action.user
             }
+        case 'UNSET_USER':
+            return {
+                ...state,
+                isAuth: false,
+                user: {},
+                profile: {}
+            }
         case 'FOLLOW_USER':
             let user = Object.assign({}, state.user)
             user.following.push(action.user_id)

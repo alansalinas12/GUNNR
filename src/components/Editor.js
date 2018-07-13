@@ -111,7 +111,7 @@ class Editor extends Component {
                 hideDelay: 300
             },
             placeholder: {
-                text: 'Tell your story...'
+                text: 'Description'
             }
             /*
             placeholder: { text: "Tell your Story ...", hideOnClick: true },

@@ -77,6 +77,13 @@ export function SignInUser(user_data) {
     }
 }
 
+export function SignOutUser(user_id) {
+    return (dispatch) => {
+            localStorage.removeItem('Auth', JSON.stringify(user))
+            dispatch({ type: 'UNSET_USER' })
+    }
+}
+
 export function toggleClose() {
     return (dispatch) => {
         dispatch({ type: 'TOGGLE_MODAL', modalMode: false })
