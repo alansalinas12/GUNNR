@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-export default function (Component) {
+export default function (Conmponent) {
     class Authenticate extends Component {
 
         componentWillMount() {
@@ -14,7 +14,7 @@ export default function (Component) {
 
         render() {
             return (
-                <Component {...this.props} />
+                <Conmponent {...this.props} />
             )
         }
     }
