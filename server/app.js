@@ -20,9 +20,7 @@ cloudinary.config({
 
 /** connect to MongoDB datastore */
 try {
-    mongoose.connect(url, {
-        //useMongoClient: true
-    })
+    mongoose.connect(url)
 } catch (error) {
 
 }

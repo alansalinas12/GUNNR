@@ -79,6 +79,7 @@ export function SignInUser(user_data) {
 
 export function SignOutUser() {
     return (dispatch) => {
+        localStorage.clear()
         dispatch({ type: 'UNSET_USER' })
     }
 }

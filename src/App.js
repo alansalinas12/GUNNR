@@ -8,7 +8,6 @@ import WeaponView from './components/WeaponView'
 import Editor from './components/Editor'
 import requireAuthentication from './utils/requireAuth'
 import SignInWith from './components/SignInWith'
-import SignOutWith from './components/SignOutWith';
 
 class App extends Component {
     render() {
@@ -17,7 +16,6 @@ class App extends Component {
             <div>
                 {!pathname.includes('editor') ? <Header /> : ''}
                 <SignInWith />
-                <SignOutWith />
                 <Switch>
 
                     <Route exact path="/" component={Feed} />

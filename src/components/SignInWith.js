@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import GoogleLogin from 'react-google-login'
+import { GoogleLogin, GoogleLogout } from 'react-google-login'
 import {
     SignInUser,
+    SignOutUser,
     toggleClose,
     toggleOpen
 } from './../redux/actions/actions'
@@ -25,6 +26,10 @@ class SignInWith extends Component {
             this.props.toggleClose()
         }
 
+        const logout = () => {
+            this.props.SignOutUser()
+        }
+
         return (
             <div>
                 <div data-behavior="overlay" className={this.props.modalMode === true ? 'overlay overlay-hugeinc open' : 'overlay overlay-hugeinc'}>
@@ -40,6 +45,13 @@ class SignInWith extends Component {
                                     onFailure={responseGoogle} >
                                     <i className="fa fa-google"></i><span> SignIn with Google</span>
                                 </GoogleLogin>
+                            </li>
+                            <li className="omniauth-button google">
+                                <GoogleLogout className="button google"
+                                    buttonText="Logout"
+                                    onLogoutSuccess={logout}
+                                >
+                                </GoogleLogout>
                             </li>
 
                         </ul>
@@ -58,5 +70,6 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
     toggleClose,
     toggleOpen,
-    SignInUser
+    SignInUser,
+    SignOutUser
 })(SignInWith);
