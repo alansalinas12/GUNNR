@@ -25,14 +25,13 @@ class Header extends Component {
                                 <img alt="Weapons" src="/assets/img/GUNNR.PNG" height="40" />
                             </a>
                         </div>
-                        <ul className="nav navbar-nav filter-links">
-                            <li><a className="" href="/">Top weapons</a></li>
-                        </ul>
-
                         <div className="folding-nav">
                             <ul className="nav navbar-nav navbar-right">
                                 {this.props.isAuth ? <li className="new-post-button"><a className="button" data-behavior="trigger-overlay" href="/editor">Upload new weapon</a></li> : ''}
                                 {this.props.isAuth ? '' : <li onClick={this.props.openSignInWith} className="sign-in-button"><a className="button green-border-button" data-behavior="trigger-overlay" href="#">Sign in / Sign up</a></li>}
+                            </ul>
+                            <ul className="nav navbar-nav navbar-right">
+                                {this.props.isAuth ? <li className="sign-out-button"><a className="button red-border-button" data-behavior="trigger-overlay" href="/">Sign out</a></li> : ''}
                             </ul>
                         </div>
 

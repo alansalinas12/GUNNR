@@ -50,7 +50,7 @@ class SignInWith extends Component {
                                 <GoogleLogout className="button google"
                                     buttonText="Logout"
                                     onLogoutSuccess={logout}
-                                >
+                                ><i className="fa fa-google"></i><span> Sign Out</span>
                                 </GoogleLogout>
                             </li>
 
