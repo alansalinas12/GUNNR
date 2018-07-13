@@ -39,7 +39,7 @@ export function getWeapon(weapon_id) {
     }
 }
 // weapon_id, author_id, comment
-export function comment() {
+export function comment(weapon_id, author_id, comment) {
     return (dispatch) => {
 
     }

@@ -28,6 +28,7 @@ class SignInWith extends Component {
 
         const logout = () => {
             this.props.SignOutUser()
+            this.props.toggleClose()
         }
 
         return (
@@ -43,14 +44,14 @@ class SignInWith extends Component {
                                     clientId="771051909767-d73k2p7p73c8gvndkna7s0eikkh84ciu.apps.googleusercontent.com"
                                     onSuccess={responseGoogle}
                                     onFailure={responseGoogle} >
-                                    <i className="fa fa-google"></i><span> SignIn with Google</span>
+                                    <i className="fa fa-google"></i><span> Sign In with Google </span>
                                 </GoogleLogin>
                             </li>
                             <li className="omniauth-button google">
                                 <GoogleLogout className="button google"
                                     buttonText="Logout"
                                     onLogoutSuccess={logout}
-                                ><i className="fa fa-google"></i><span> Sign Out</span>
+                                ><i className="fa fa-google"></i><span> Sign Out </span>
                                 </GoogleLogout>
                             </li>
 

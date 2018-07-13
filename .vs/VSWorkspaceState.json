@@ -1,17 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-    "\\dist",
-    "\\dist\\assets",
-    "\\dist\\controllers",
-    "\\dist\\static",
     "\\server",
+    "\\server\\controllers",
     "\\server\\models",
-    "\\server\\routes",
     "\\src",
     "\\src\\components",
-    "\\src\\utils"
+    "\\src\\redux",
+    "\\src\\redux\\actions"
   ],
-  "SelectedNode": "\\src\\components\\Editor.js",
+  "SelectedNode": "\\src\\components\\WeaponView.js",
   "PreviewInSolutionExplorer": false
 }

@@ -51,7 +51,7 @@ class WeaponView extends Component {
                                 <img alt={author_name} className="avatar-image" src={author_img} height="40" width="40" />
                                 <div className="post-info">
                                     <div data-react-className="PopoverLink" data-react-props="{&quot;user_id&quot;:608,&quot;url&quot;:&quot;/users/netk&quot;,&quot;children&quot;:&quot;netk&quot;}"><span className="popover-link" data-reactroot=""><a href={`/profile/${author_id}`}>{author_name}</a></span></div>
-                                    <small>Published • nice story</small>
+                                    <small>Published •</small>
                                 </div>
                             </div>
 
@@ -69,8 +69,7 @@ class WeaponView extends Component {
                             </div>
 
                             <div className="post-tags">
-                                <a className="tag" href="">Story</a>
-                                <a className="tag" href="">Community</a>
+                                <a className="tag" href="">Comment</a>
                             </div>
 
                             <div className="post-stats clearfix">
@@ -115,7 +114,7 @@ class WeaponView extends Component {
 
                     <div className="post-show-footer row animated fadeInUp" data-animation="fadeInUp-fadeOutDown">
                         <div className="col-xs-10 col-md-6 col-xs-offset-1 col-md-offset-3 main-content related-stories">
-                            <h4 className="small-heading">Related stories</h4>
+                            <h4 className="small-heading">Related weapons</h4>
                             <div className="post-list-item">
                                 <div className="flex-container">
                                     <div className="avatar-wrapper">
