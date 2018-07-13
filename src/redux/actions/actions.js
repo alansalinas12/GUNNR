@@ -77,10 +77,9 @@ export function SignInUser(user_data) {
     }
 }
 
-export function SignOutUser(user_id) {
+export function SignOutUser() {
     return (dispatch) => {
-            localStorage.removeItem('Auth', JSON.stringify(user))
-            dispatch({ type: 'UNSET_USER' })
+        dispatch({ type: 'UNSET_USER' })
     }
 }
 
