@@ -31,7 +31,7 @@ class Header extends Component {
                                 {this.props.isAuth ? '' : <li onClick={this.props.openSignInWith} className="sign-in-button"><a className="button green-border-button" data-behavior="trigger-overlay" href="#">Sign in / Sign up</a></li>}
                             </ul>
                             <ul className="nav navbar-nav navbar-right">
-                                {this.props.isAuth ? <li className="sign-out-button"><a className="button red-border-button" data-behavior="trigger-overlay" href="/">Sign out</a></li> : ''}
+                                {this.props.isAuth ? <li onClick={this.props.openSignInWith} className="sign-in-button"><a className="button green-border-button" data-behavior="trigger-overlay" href="#">Sign out</a></li> : ''}
                             </ul>
                         </div>
 
